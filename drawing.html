@@ -1,0 +1,37 @@
+<html>
+<head>
+<style>
+#getdata{
+width:300px;
+height:300px;
+padding:10px;
+border:10px solid #03dffc ;
+}
+</style>
+<script>
+function allowdrop(even){
+even.preventDefault();
+}
+function drag(even){
+even.dataTransfer.setData("text",even.target.id);
+}
+function drop(even){
+even.preventDefault();
+var fetchdata=even.dataTransfer.getData("text");
+even.target.appendChild(document.getElementById(fetchdata));
+}
+</script>
+<body>
+<div id="getdata"
+ondrop="drop(event)"
+ondragover="allowdrop(event)">
+</div>
+<img id="dragData"
+src="C:/Users/hp/Pictures/IMG_20230306_065625.jpg"
+draggable="true"
+ondragstart="drag(event)"
+width="100"
+height="100">
+</body>
+</head>
+</html>
